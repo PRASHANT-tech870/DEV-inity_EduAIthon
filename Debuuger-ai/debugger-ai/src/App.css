@@ -1,0 +1,350 @@
+/* Base styles */
+:root {
+  --primary-color: #4f46e5;
+  --primary-hover: #4338ca;
+  --success-color: #22c55e;
+  --error-color: #ef4444;
+  --background-color: #f8fafc;
+  --text-color: #1e293b;
+  --border-color: #e2e8f0;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Selector Model Styling */
+.selector-model {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.selector-model h1 {
+  color: var(--text-color);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.selector-model label {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.selector-model select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: white;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.selector-model select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+/* Button Styles */
+button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.selector-model button {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  margin-top: 1rem;
+}
+
+.selector-model button:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+}
+
+/* Question Display Styling */
+.flex-container {
+  background-color: white;
+  height: 100vh;
+}
+
+/* Fix for the class with dots */
+[class~="w-1/2"][class~="p-4"][class~="border-r"] {
+  border-color: var(--border-color);
+}
+
+.back-button {
+  background-color: #e5e7eb;
+  color: var(--text-color);
+  transition: all 0.2s;
+}
+
+.back-button:hover {
+  background-color: #d1d5db;
+}
+
+.evaluate-button {
+  background-color: var(--success-color);
+  color: white;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.evaluate-button:hover {
+  opacity: 0.9;
+}
+
+/* Timer Styling */
+.timer {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--error-color);
+}
+
+/* Result Display */
+.result-container {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.result-status {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.result-status.pass {
+  color: var(--success-color);
+  border-bottom-color: var(--success-color);
+}
+
+.result-status.fail {
+  color: var(--error-color);
+  border-bottom-color: var(--error-color);
+}
+
+.result-explanation {
+  background-color: #f8fafc;
+  padding: 1.25rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.result-explanation pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  background-color: #f1f5f9;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+}
+
+/* Monaco Editor Customization */
+.monaco-editor {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+  }
+  
+  [class~="w-1/2"] {
+    width: 100%;
+  }
+  
+  .selector-model {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+}
+
+/* Features Container Styling */
+.features-container {
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin: 1rem 0;
+    transition: all 0.2s;
+}
+
+.features-container:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+.features-container p {
+    color: var(--text-color);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.features-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features-container li {
+    color: #64748b;
+    font-size: 0.875rem;
+    padding: 0.25rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.features-container li:before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+/* Language Badge */
+.language-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    background-color: #e0e7ff;
+    color: var(--primary-color);
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
+
+/* GitHub Issues Styling */
+.github-issues-container {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.github-issues-container h3 {
+    color: var(--text-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.issues-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.issue-card {
+    padding: 1rem;
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.issue-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.issue-title {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.issue-title:hover {
+    text-decoration: underline;
+}
+
+.repository {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.label {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.created-at {
+    color: #94a3b8;
+    font-size: 0.75rem;
+}
+
+.loading-spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    margin: 1rem auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.github-issues-container.error {
+    border-color: var(--error-color);
+    background-color: #fef2f2;
+}
+
+.github-issues-container.error h3 {
+    color: var(--error-color);
+}

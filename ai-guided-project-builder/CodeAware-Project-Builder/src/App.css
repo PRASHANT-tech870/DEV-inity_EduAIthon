@@ -1,0 +1,113 @@
+/* App styles - cleaned up to use CSS variables consistently */
+
+.code-editor-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.monaco-editor {
+  flex-grow: 1;
+  min-height: 500px;
+}
+
+.language-selector {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.execute-button {
+  margin-left: auto;
+}
+
+.result-container {
+  margin-top: var(--space-md);
+}
+
+.result-container pre {
+  padding: var(--space-md);
+  background-color: var(--neutral-200);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.result-error {
+  color: var(--error);
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-md);
+}
+
+.loading::after {
+  content: "";
+  width: 24px;
+  height: 24px;
+  border: 4px solid var(--neutral-300);
+  border-top: 4px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.code-example {
+  padding: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  background-color: var(--neutral-200);
+  border-radius: var(--radius-md);
+  font-family: 'Roboto Mono', monospace;
+  cursor: pointer;
+}
+
+.code-example:hover {
+  background-color: var(--neutral-300);
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Ensure app takes full height */
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* CSS Reset to prevent any global styling issues */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide scrollbar in code editor but keep functionality */
+.monaco-editor .scrollbar .slider {
+  background: rgba(100, 100, 100, 0.4) !important;
+}
+
+.monaco-editor .scrollbar.visible {
+  opacity: 0.6 !important;
+}
+
+/* Prevent layout shifts during loading */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  width: 100%;
+}

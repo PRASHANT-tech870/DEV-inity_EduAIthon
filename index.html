@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduAIthon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            min-height: 100vh;
+            padding: 2rem;
+            color: #fff;
+            background-attachment: fixed;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+            pointer-events: none;
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, #4CAF50, #2196F3);
+            border-radius: 3px;
+        }
+
+        .title {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #fff, #4CAF50);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            text-shadow: 0 0 30px rgba(76, 175, 80, 0.3);
+        }
+
+        .title span {
+            background: linear-gradient(90deg, #00f7ff, #00ff88);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+        }
+
+        .team-info {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            animation: glow 3s infinite alternate;
+        }
+
+        .team-info h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #ff9966, #ff5e62);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .topic-name {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+            color: #f0f0f0;
+            font-weight: 600;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .team-details {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 2rem;
+        }
+
+        .team-detail {
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            padding: 1rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 300px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05));
+            pointer-events: none;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            color: #4CAF50;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .card h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #4CAF50;
+            border-radius: 2px;
+        }
+
+        .card p {
+            margin-bottom: 1.8rem;
+            line-height: 1.7;
+            color: #ddd;
+            font-size: 1.1rem;
+        }
+
+        .card a {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(90deg, #4CAF50, #2196F3);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .card a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0.2), transparent);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+
+        .card a:hover::before {
+            left: 100%;
+        }
+
+        .card a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.4);
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(33, 150, 243, 0.7);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .cards-container {
+                gap: 2rem;
+                padding: 0.5rem;
+            }
+            
+            .card {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 3rem;
+            }
+
+            .team-info h2 {
+                font-size: 1.8rem;
+            }
+
+            .topic-name {
+                font-size: 1.4rem;
+            }
+
+            .team-details {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                min-height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Edu<span>AI</span>thon</h1>
+        </header>
+
+        <div class="team-info">
+            <h2>CodeAware - Redefining learning in the Age of AI</h2>
+            <div class="team-details">
+                <div class="team-detail">Team: DEV-inity</div>
+                <div class="team-detail">Team #45</div>
+            </div>
+        </div>
+
+        <div class="cards-container">
+            <div class="card">
+                <h2>AI-Enhanced Project Builder</h2>
+                <p>Turn Ideas into Code Instantly.<br>
+                AI guides you from concept to project structure with the perfect tech stack.</p>
+                <a href="http://localhost:5174/">Get Started</a>
+            </div>
+
+            <div class="card">
+                <h2>AI as a Pair-Programmer</h2>
+                <p>Never Code Alone Again.<br>
+                AI helps you write, review, and optimize code—like your smartest coding buddy.</p>
+                <a href="/pair-programmer">Start Coding</a>
+            </div>
+
+            <div class="card">
+                <h2>Debugging Battles & Path to Open Source</h2>
+                <p>Level Up Your Debugging Game.<br>
+                Tackle bugs with AI and get guided pathways into real open-source contributions.</p>
+                <a href="http://localhost:5176/">Debug Now</a>
+            </div>
+
+            <div class="card">
+                <h2>LeetCode (DSA) AI Assistant</h2>
+                <p>Crack Every Problem with Confidence.<br>
+                AI gives hints, strategies, and feedback to sharpen your DSA and interview skills.</p>
+                <a href="http://localhost:5175/">Practice DSA</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+{
+    "Python" : {
+        "Beginner" : [
+            {
+                "id" : 1,
+                "title" : "Fix the syntax error",
+                "code" : "print('hello world'",
+                "expectedOutput" : "hello world"
+
+            }
+        ],
+        "Intermediate" : [
+            {
+                "id": 2,
+                "title": "Handle file reading errors",
+                "code": "file = open('data.txt')\nprint(file.read())",
+                "expectedOutput" : "Contents of data.txt"
+
+            }
+
+        ],
+        "Expert" : [
+            {
+                "id": 3,
+                "title": "Optimize recursive function",
+                "code": "def fib(n):\n  if n<=1:\n    return n\n  return fib(n-1) + fib(n-2)",
+                "expectedOutput" : "fib(5) =>5"
+
+            }
+
+        ]
+        
+
+    },
+
+    "JavaScript":{
+        "Beginner" : [
+            {
+                "id" : 1,
+                "title" : "Fix the bug in loop",
+                "code" : "for(i =0;i<5;i++) console.log(i);",
+                "expectedOutput" : "0\n1\n2\n3\n4"
+
+            }
+        ],
+        "Intermediate" : [
+            {
+                "id": 2,
+                "title": "Fix async function behavior",
+                "code": "function getData() {\n  let res = fetch('api/data');\n  console.log(res);\n}",
+                "expectedOutput" : "Promise { <pending> }"
+
+            }
+
+        ],
+        "Expert" : [
+            {
+                "id": 3,
+                "title": "Fix prototype inheritance issue",
+                "code": "function A() {}\nA.prototype.sayHi = () => console.log('Hi');\nfunction B() {}\nB.prototype = A.prototype;\nnew B().sayHi();",
+                "expectedOutput" : "Hi"
+
+            }
+        ]
+
+    }
+}
