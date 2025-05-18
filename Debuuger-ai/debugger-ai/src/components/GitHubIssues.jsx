@@ -14,7 +14,7 @@ const GitHubIssues = ({ language, errorType }) => {
 
             try {
                 const response = await fetch(
-                    `http://localhost:8001/github-issues?language=${encodeURIComponent(language)}&errorType=${encodeURIComponent(errorType)}`
+                    `http://localhost:8002/github-issues?language=${encodeURIComponent(language)}&errorType=${encodeURIComponent(errorType)}`
                 );
 
                 if (!response.ok) {

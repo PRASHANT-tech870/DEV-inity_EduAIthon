@@ -436,4 +436,4 @@ app.get("/github-issues", async (req, res) => {
     }
 });
 
-app.listen(8001, () => console.log("Server running on http://localhost:8002"));
+app.listen(8002, () => console.log("Server running on http://localhost:8002"));

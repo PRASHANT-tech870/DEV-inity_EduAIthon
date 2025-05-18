@@ -53,7 +53,7 @@ const QuestionDisplay = ({question, language, onBack}) => {
                 language
             });
 
-            const res = await fetch("http://localhost:8001/evaluate", {
+            const res = await fetch("http://localhost:8002/evaluate", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
