@@ -10,7 +10,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Google API key for Gemini
-GOOGLE_API_KEY = "AIzaSyCMEPSK6GFQiZm48zO5dgE1QaoGYmcfQGw"
+GOOGLE_API_KEY = "AIzaSyAdmsv3j457O4FCjvBpndiqbpZgoxdAyEM"
 # Make it available as an environment variable too
 os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
 
