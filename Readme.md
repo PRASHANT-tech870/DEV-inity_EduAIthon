@@ -37,7 +37,7 @@
 2. **Set environment variables**:
    Create a `.env` file in the root directory with:
    ```
-   GEMINI_API_KEY=AIzaSyCMEPSK6GFQiZm48zO5dgE1QaoGYmcfQGw
+   GEMINI_API_KEY=YOUR_KEY
    ```
 
 3. **Start Docker Desktop** (Mac & Windows):
