@@ -1,8 +1,9 @@
 fastapi
 uvicorn
-python-dotenv
-pydantic
 google-generativeai
+pydantic
 python-multipart
+psutil
 httpx
 aiohttp
+streamlit

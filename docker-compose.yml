@@ -1,0 +1,73 @@
+
+
+services:
+  # AI-Guided Project Builder
+  project-builder-frontend:
+    build:
+      context: ./ai-guided-project-builder/CodeAware-Project-Builder
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "5177:5177"
+    environment:
+      - VITE_API_URL=http://localhost:8001
+    depends_on:
+      - project-builder-backend
+
+  project-builder-backend:
+    build:
+      context: ./ai-guided-project-builder/CodeAware-project-builder-backend
+      dockerfile: Dockerfile.python
+    ports:
+      - "8001:8001"
+      - "8501:8501"
+
+    environment:
+      - GOOGLE_API_KEY=AIzaSyAUFz4_4regOok1vlanmOdZF8aM7SmBGZk
+
+  # Debugger AI
+  debugger-frontend:
+    build:
+      context: ./Debuuger-ai/debugger-ai
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "5176:5176"
+    environment:
+      - VITE_API_URL=http://localhost:8002
+    depends_on:
+      - debugger-backend
+
+  debugger-backend:
+    build:
+      context: ./Debuuger-ai/debugger-ai/backend
+      dockerfile: Dockerfile.nodejs
+    ports:
+      - "8002:8002"
+
+  # LeetCode AI Assistant
+  leetcode-assistant:
+    build:
+      context: ./leetcode-ai-assistant/leetcode-ai
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "5175:5175"
+    environment:
+      - VITE_GEMINI_API_KEY=${GEMINI_API_KEY}
+
+  # Pair Programmer
+  pair-programmer-frontend:
+    build:
+      context: ./Pair-programmer/Pair_Programmer/frontend
+      dockerfile: Dockerfile.react
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8003
+    depends_on:
+      - pair-programmer-backend
+
+  pair-programmer-backend:
+    build:
+      context: ./Pair-programmer/Pair_Programmer/backend
+      dockerfile: Dockerfile.python
+    ports:
+      - "8003:8003"

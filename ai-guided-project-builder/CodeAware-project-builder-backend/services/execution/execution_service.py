@@ -48,18 +48,19 @@ class ExecutionService:
                 # We can't capture the web output, but we can report if it started successfully
                 try:
                     # Start Streamlit process on a random port
-                    port = 8501 + (hash(execution_id) % 100)  # Random port between 8501-8600
+                    port = 8501 # Random port between 8501-8600
                     
                     # Build the command with appropriate flags to run headless
                     streamlit_cmd = [
                         "streamlit", "run", 
                         temp_file_path,
-                        "--server.address", "localhost",
+                        "--server.address", "0.0.0.0",
                         "--server.port", str(port),
                         "--server.headless", "true",
                         "--server.runOnSave", "true",
-                        "--browser.serverAddress", "localhost",
+                        "--browser.serverAddress", "0.0.0.0",
                         "--browser.gatherUsageStats", "false"
+                        
                     ]
                     
                     # Use Popen instead of run so we don't block waiting for the process

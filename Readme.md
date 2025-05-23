@@ -8,6 +8,64 @@
 
 <hr>
 
+## 🐳 Getting Started with Docker
+
+### Prerequisites
+
+1. **Install Docker**:
+   - **Mac**: [Download Docker Desktop](https://www.docker.com/products/docker-desktop)
+   - **Windows**: [Download Docker Desktop](https://www.docker.com/products/docker-desktop)
+   - **Linux**: 
+     ```bash
+     sudo apt-get update
+     sudo apt-get install docker-ce docker-ce-cli containerd.io
+     ```
+
+2. **Verify Docker installation**:
+   ```bash
+   docker --version
+   ```
+
+### Running the Application
+
+1. **Clone the repository**:
+   ```bash
+   git clone [repository-url]
+   cd [repository-directory]
+   ```
+
+2. **Set environment variables**:
+   Create a `.env` file in the root directory with:
+   ```
+   GEMINI_API_KEY=AIzaSyCMEPSK6GFQiZm48zO5dgE1QaoGYmcfQGw
+   ```
+
+3. **Start Docker Desktop** (Mac & Windows):
+   - Open the Docker Desktop application
+   - Wait for it to start completely (status: Running)
+
+4. **Run the application**:
+   ```bash
+   docker-compose up
+   ```
+
+5. **Access the applications** in your browser:
+   - AI-Guided Project Builder: http://localhost:5177
+   - AI Pair-Programmer: http://localhost:3000
+   - Debugging Battles: http://localhost:5176
+   - LeetCode AI Assistant: http://localhost:5175
+
+### What's Running
+
+This command starts 7 services:
+- 4 frontend applications (React/Vite)
+- 2 Python/FastAPI backend services
+- 1 Node.js Express backend service
+
+To stop all services, press `Ctrl+C` in the terminal where docker-compose is running.
+
+<hr>
+
 ## 🚀 Platform Overview
 
 **CodeAware** is an innovative educational platform that leverages AI to transform the way developers learn to code, debug, and solve problems. Our platform consists of four powerful tools designed to address different aspects of the coding journey, from project creation to algorithmic problem-solving.
