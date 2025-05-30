@@ -100,7 +100,7 @@ const AlgorithmDesigner = ({ onClose }) => {
       const currentExchangeCount = exchangeCount + 1;
       
       // Get AI response from backend
-      const response = await axios.post('http://localhost:8001/api/algorithm_designer', {
+      const response = await axios.post('http://48.217.184.103:8001/api/algorithm_designer', {
         project_description: projectDescription || undefined,
         message: userInput,
         conversation_history: messages,
