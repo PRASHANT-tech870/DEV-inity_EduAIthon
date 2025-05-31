@@ -8,7 +8,7 @@ import CodeEditor from './CodeEditor';
 import OutputDisplay from './OutputDisplay';
 import ProjectStep from './ProjectStep';
 import '../styles/ProjectBuilder.css';
-import { BASE_URL } from './apiconfig';
+import BASE_URL from './apiconfig';
 
 
 const ProjectBuilder = ({ sessionData, onReset }) => {

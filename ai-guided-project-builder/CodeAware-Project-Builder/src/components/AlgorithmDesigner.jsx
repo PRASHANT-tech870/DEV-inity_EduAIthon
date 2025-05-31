@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/AlgorithmDesigner.css';
 import ReactMarkdown from 'react-markdown';
-import { BASE_URL } from './apiconfig';
+import BASE_URL from './apiconfig';
 
 const AlgorithmDesigner = ({ onClose }) => {
   const [projectDescription, setProjectDescription] = useState('');
