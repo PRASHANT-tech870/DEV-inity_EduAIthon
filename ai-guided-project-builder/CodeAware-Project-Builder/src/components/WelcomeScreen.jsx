@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/WelcomeScreen.css';
-import { BASE_URL } from './apiconfig';
+import BASE_URL from './apiconfig';
 
 import AlgorithmDesigner from './AlgorithmDesigner';
 
