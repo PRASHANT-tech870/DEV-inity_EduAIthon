@@ -44,7 +44,7 @@ const Quiz = () => {
       try {
         setLoading(true);
         setError(null);
-        const response = await axios.post('http://localhost:8003/api/generate_quiz', {
+        const response = await axios.post(`${BASE_URL}/api/generate_quiz`, {
           task_description: task,
           language: language
         });
@@ -96,7 +96,7 @@ const Quiz = () => {
       console.log("Submitting answers:", answers);
       
       // Send answers to backend with session ID
-      const response = await axios.post('http://localhost:8003/api/check_quiz', {
+      const response = await axios.post(`${BASE_URL}/api/check_quiz`, {
         session_id: sessionId,
         answers: answers
       });

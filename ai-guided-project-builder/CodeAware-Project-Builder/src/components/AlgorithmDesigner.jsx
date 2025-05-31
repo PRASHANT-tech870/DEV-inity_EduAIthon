@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/AlgorithmDesigner.css';
 import ReactMarkdown from 'react-markdown';
+import { BASE_URL } from './apiconfig';
 
 const AlgorithmDesigner = ({ onClose }) => {
   const [projectDescription, setProjectDescription] = useState('');
@@ -100,7 +101,7 @@ const AlgorithmDesigner = ({ onClose }) => {
       const currentExchangeCount = exchangeCount + 1;
       
       // Get AI response from backend
-      const response = await axios.post('http://48.217.184.103:8001/api/algorithm_designer', {
+      const response = await axios.post(`${BASE_URL}/api/algorithm_designer`, {
         project_description: projectDescription || undefined,
         message: userInput,
         conversation_history: messages,
@@ -169,7 +170,7 @@ const AlgorithmDesigner = ({ onClose }) => {
       setMessages(prevMessages => [...prevMessages, finalRequestMessage]);
       
       // Request final algorithm
-      const response = await axios.post('http://localhost:8001/api/algorithm_designer', {
+      const response = await axios.post(`${BASE_URL}/api/algorithm_designer`, {
         project_description: projectDescription || undefined,
         message: "Please provide the complete algorithm workflow.",
         conversation_history: messages,

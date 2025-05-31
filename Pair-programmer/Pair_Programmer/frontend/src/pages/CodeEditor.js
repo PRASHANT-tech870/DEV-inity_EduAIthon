@@ -27,6 +27,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import useCodingStore from '../store/codingStore';
 import axios from 'axios';
+import BASE_URL from './apiconfig';
 import Editor from '@monaco-editor/react';
 
 const CodeEditor = () => {
@@ -88,7 +89,7 @@ const CodeEditor = () => {
           shouldUseBoilerplate = true;
         }
 
-        const response = await axios.post('http://localhost:8003/api/generate_scaffolding', {
+        const response = await axios.post(`${BASE_URL}/api/generate_scaffolding`, {
           task_description: task,
           difficulty_level: difficulty,
           language: language,
@@ -174,7 +175,7 @@ const CodeEditor = () => {
       // Ensure code is a string before sending
       const codeToRun = typeof localCode === 'string' ? localCode : String(localCode);
       
-      const response = await axios.post('http://localhost:8003/api/run_code', {
+      const response = await axios.post(`${BASE_URL}/api/run_code`, {
         code: codeToRun,
         language: language
       });
@@ -204,7 +205,7 @@ const CodeEditor = () => {
       // Ensure code is a string before sending
       const codeToAnalyze = typeof localCode === 'string' ? localCode : String(localCode);
       
-      const response = await axios.post('http://localhost:8003/api/analyze_code', {
+      const response = await axios.post(`${BASE_URL}/api/analyze_code`, {
         code: codeToAnalyze,
         language: language,
         task_description: task

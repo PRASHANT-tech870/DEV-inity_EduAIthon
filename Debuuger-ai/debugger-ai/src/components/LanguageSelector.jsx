@@ -12,7 +12,7 @@ const LanguageSelector = ({ onselectstart }) => {
             setError(null);
             
             const response = await fetch(
-                `http://localhost:8002/challenge?language=${encodeURIComponent(language)}&difficulty=${difficulty.toLowerCase()}`
+                `http://48.217.184.103:8002/challenge?language=${encodeURIComponent(language)}&difficulty=${difficulty.toLowerCase()}`
             );
 
             if (!response.ok) {

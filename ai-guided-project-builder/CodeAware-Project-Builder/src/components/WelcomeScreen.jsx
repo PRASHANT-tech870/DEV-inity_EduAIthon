@@ -50,7 +50,7 @@ const WelcomeScreen = ({ onProjectStart }) => {
     setError('');
     
     try {
-      const response = await axios.post('http://localhost:8001/start_project', {
+      const response = await axios.post(`${BASE_URL}/start_project`, {
         project_type: projectType,
         expertise_level: expertiseLevel,
         project_idea: projectIdea || undefined

@@ -163,7 +163,7 @@ const ProjectBuilder = ({ sessionData, onReset }) => {
   const cleanupStreamlit = async () => {
     if (streamlitExecutionId) {
       try {
-        await axios.post('http://localhost:8001/terminate_streamlit', {
+        await axios.post(`${BASE_URL}/terminate_streamlit`, {
           execution_id: streamlitExecutionId
         });
         setStreamlitExecutionId(null);
@@ -190,7 +190,7 @@ const ProjectBuilder = ({ sessionData, onReset }) => {
     try {
       if (language === 'html' || language === 'css' || language === 'javascript') {
         // For HTML/CSS/JS, handle preview
-        const response = await axios.post('http://localhost:8001/render_website', {
+        const response = await axios.post(`${BASE_URL}/render_website`, {
           html_code: htmlCode,
           css_code: cssCode,
           session_id: sessionData.sessionId  // Pass session ID to track execution attempts
@@ -210,7 +210,7 @@ const ProjectBuilder = ({ sessionData, onReset }) => {
         });
       } else {
         // For Python, send to backend for execution
-        const response = await axios.post('http://localhost:8001/execute', {
+        const response = await axios.post(`${BASE_URL}/execute`, {
           code,
           language,
           session_id: sessionData.sessionId  // Pass session ID to track execution attempts
@@ -254,7 +254,7 @@ const ProjectBuilder = ({ sessionData, onReset }) => {
     try {
       // Get quiz questions for this step
       console.log("Getting quiz questions for step:", currentStep);
-      const response = await axios.post('http://localhost:8001/get_step_questions', {
+      const response = await axios.post(`${BASE_URL}/get_step_questions`, {
         session_id: sessionData.sessionId,
         step_number: currentStep
       });
@@ -321,7 +321,7 @@ const ProjectBuilder = ({ sessionData, onReset }) => {
         correct_answer: question.correct_answer
       }));
       
-      const response = await axios.post('http://localhost:8001/verify_step_completion', {
+      const response = await axios.post(`${BASE_URL}/verify_step_completion`, {
         session_id: sessionData.sessionId,
         step_number: currentStep,
         user_answers: formattedAnswers
@@ -355,7 +355,7 @@ const ProjectBuilder = ({ sessionData, onReset }) => {
             setError(null);
             
             // Proceed to next step without sending a special flag
-            axios.post('http://localhost:8001/next_step_test', {
+            axios.post(`${BASE_URL}/next_step_test`, {
               project_type: sessionData.projectType,
               expertise_level: sessionData.expertiseLevel,
               project_idea: sessionData.projectIdea,
@@ -443,7 +443,7 @@ const ProjectBuilder = ({ sessionData, onReset }) => {
       });
       
       // Using the test endpoint for debugging
-      const response = await axios.post('http://localhost:8001/next_step_test', {
+      const response = await axios.post(`${BASE_URL}/next_step_test`, {
         project_type: sessionData.projectType,
         expertise_level: sessionData.expertiseLevel,
         project_idea: sessionData.projectIdea,
@@ -530,7 +530,7 @@ const ProjectBuilder = ({ sessionData, onReset }) => {
     const isErrorRelated = detectErrorQuestion(userQuestion);
     
     try {
-      const response = await axios.post('http://localhost:8001/ask_question', {
+      const response = await axios.post(`${BASE_URL}/ask_question`, {
         question: userQuestion,
         code: getCurrentCode(),
         project_type: sessionData.projectType,
@@ -583,7 +583,7 @@ const ProjectBuilder = ({ sessionData, onReset }) => {
       // Fetch current step attempts from the backend
       const fetchStepAttempts = async () => {
         try {
-          const response = await axios.get(`http://localhost:8001/get_step_attempts`, {
+          const response = await axios.get(`${BASE_URL}/get_step_attempts`, {
             params: {
               session_id: sessionData.sessionId,
               step_number: currentStep

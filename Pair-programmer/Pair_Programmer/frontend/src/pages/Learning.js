@@ -85,7 +85,7 @@ const Learning = () => {
           wrong_answers: wrongAnswerData
         });
         
-        const response = await axios.post('http://localhost:8003/api/generate_learning', {
+        const response = await axios.post(`${BASE_URL}/api/generate_learning`, {
           task_description: taskDescription,
           language,
           wrong_answers: wrongAnswerData
