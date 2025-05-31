@@ -3,7 +3,6 @@ import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import '../styles/ProjectStep.css';
-import { BASE_URL } from './apiconfig';
 
 
 const ProjectStep = ({ stepData, stepNumber, executionAttempts = 0 }) => {
