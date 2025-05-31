@@ -18,6 +18,7 @@ import {
 } from '@mui/material';
 import useCodingStore from '../store/codingStore';
 import axios from 'axios';
+import BASE_URL from './apiconfig';
 
 const Quiz = () => {
   const navigate = useNavigate();

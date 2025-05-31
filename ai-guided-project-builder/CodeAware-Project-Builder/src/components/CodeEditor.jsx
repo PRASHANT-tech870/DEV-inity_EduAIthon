@@ -1,5 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import Editor from "@monaco-editor/react";
+import { BASE_URL } from './apiconfig';
+
+
 
 const defaultCode = {
   python: `# Python Example
